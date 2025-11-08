@@ -15,6 +15,14 @@ body {
   background-attachment: fixed;
   overflow: hidden;
 }
+  
+  /* Responsive background for mobile screens */
+  @media (max-width: 600px) {
+    body {
+      background-position: top center;
+      background-size: cover; /* ensure it still fills screen */
+    }
+  }
     .ecard {
         text-align: center;
         padding: 60px;
