@@ -364,6 +364,21 @@ p {
     snowflake.innerHTML = '❄';
     document.body.appendChild(snowflake);
   }
+  // Accordion functionality
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const body = header.nextElementSibling;
+    const openBody = document.querySelector('.accordion-body[style*="block"]');
+
+    // Close any open section
+    if (openBody && openBody !== body) {
+      openBody.style.display = 'none';
+    }
+
+    // Toggle current section
+    body.style.display = (body.style.display === 'block') ? 'none' : 'block';
+  });
+});
 </script>
 
 </body>
