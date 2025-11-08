@@ -9,36 +9,73 @@
         margin: 0;
         padding: 0;
         font-family: 'Segoe UI', sans-serif;
-        background-color: #fff8f0;
+        background: url("https://github.com/cuthereard/blob/main/penguin.jpg?raw=true") no-repeat center center fixed;
+        background-size: cover;
         overflow: hidden;
     }
+
     .ecard {
         text-align: center;
-        padding: 50px;
-        background: #fff8f0;
+        padding: 60px;
         position: relative;
+        max-width: 700px;
+        margin: 80px auto;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 80px rgba(255, 0, 0, 0.4);
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(3px);
     }
+
+    .ecard::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.6) 100%);
+        z-index: 0;
+    }
+
+    .ecard > * {
+        position: relative;
+        z-index: 1;
+    }
+
     h1 {
-        color: #d62828;
-        font-size: 2.5em;
+        color: #ffe66d;
+        font-size: 2.8em;
+        text-shadow: 0 0 15px #ff0000;
     }
+
     h2 {
-        color: #2a9d8f;
-        font-size: 1.8em;
+        color: #aaf683;
+        font-size: 1.9em;
+        margin-top: 10px;
     }
+
+    p {
+        font-size: 1.2em;
+        color: #fff;
+    }
+
     .btn {
         background-color: #d62828;
         color: white;
-        padding: 15px 30px;
+        padding: 15px 35px;
         font-size: 1.2em;
         border: none;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 20px;
+        margin-top: 25px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
     }
     .btn:hover {
         background-color: #b71c1c;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
+
     /* Modal styling */
     .modal {
         display: none;
@@ -51,32 +88,32 @@
         justify-content: center;
         align-items: center;
     }
+
     .modal-content {
-        background: white;
+        background: rgba(255,255,255,0.9);
         padding: 30px;
         border-radius: 10px;
         text-align: center;
         width: 80%;
         max-width: 400px;
+        box-shadow: 0 0 25px rgba(255,255,255,0.8), 0 0 60px rgba(255,0,0,0.3);
+        backdrop-filter: blur(5px);
+        animation: popup 0.3s ease-out;
     }
+
+    @keyframes popup {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
     .close {
         cursor: pointer;
         color: #d62828;
-        font-size: 20px;
+        font-size: 24px;
         float: right;
+        margin-top: -10px;
     }
-    /* Falling snow */
-    .snowflake {
-        position: fixed;
-        top: -10px;
-        color: #fff;
-        font-size: 1em;
-        animation: fall linear infinite;
-    }
-    @keyframes fall {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(100vh); }
-    }
+
     /* Blinking lights */
     .lights {
         display: flex;
@@ -89,6 +126,7 @@
         height: 20px;
         border-radius: 50%;
         animation: blink 1s infinite alternate;
+        box-shadow: 0 0 10px currentColor;
     }
     .light.red { background-color: red; }
     .light.green { background-color: green; animation-delay: 0.3s; }
@@ -97,12 +135,26 @@
         0% { opacity: 1; }
         100% { opacity: 0.3; }
     }
+
+    /* Falling snow */
+    .snowflake {
+        position: fixed;
+        top: -10px;
+        color: #fff;
+        font-size: 1em;
+        animation: fall linear infinite;
+        text-shadow: 0 0 10px white;
+    }
+    @keyframes fall {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(100vh); }
+    }
 </style>
 </head>
 <body>
+
 <div class='ecard'>
     <div class='lights'>
-    <img src="https://github.com/cuthereard/blob/main/penguin.jpg?raw=true">
         <div class='light red'></div>
         <div class='light green'></div>
         <div class='light gold'></div>
@@ -110,11 +162,15 @@
         <div class='light green'></div>
         <div class='light gold'></div>
     </div>
+
     <h1>You're Invited!</h1>
     <h2>Cloud OS Ops Team Year-End Party 2025</h2>
     <p>Celebrating Success & Team Spirit</p>
+
     <button class='btn' onclick='openModal()'>View Details</button>
 </div>
+
+<!-- Modal -->
 <div class='modal' id='detailsModal'>
     <div class='modal-content'>
         <span class='close' onclick='closeModal()'>&times;</span>
@@ -125,6 +181,7 @@
         <p><strong>Theme:</strong> Christmas Cheer & Team Spirit</p>
     </div>
 </div>
+
 <script>
     function openModal() {
         document.getElementById('detailsModal').style.display = 'flex';
@@ -132,6 +189,7 @@
     function closeModal() {
         document.getElementById('detailsModal').style.display = 'none';
     }
+
     // Snow animation
     for (let i = 0; i < 50; i++) {
         let snowflake = document.createElement('div');
@@ -142,5 +200,6 @@
         document.body.appendChild(snowflake);
     }
 </script>
+
 </body>
 </html>
