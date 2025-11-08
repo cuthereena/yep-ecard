@@ -11,225 +11,272 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: url("https://raw.githubusercontent.com/cuthereena/yep-ecard/refs/heads/main/penguinnn.jpg")
               no-repeat center center;
-  background-size: contain; /* shows full image without cropping */
-  background-color: #000; /* fallback color for blank space */
-  background-attachment: scroll; /* mobile friendly */
+  background-size: contain;
+  background-color: #000;
+  background-attachment: scroll;
   background-position: center;
   background-repeat: no-repeat;
   overflow-x: hidden;
   height: 100vh;
 }
 
-/* For larger screens (desktop/laptop) */
 @media (min-width: 768px) {
   body {
-    background-size: contain; /* keep full image visible */
-    background-attachment: fixed; /* parallax style */
+    background-size: contain;
+    background-attachment: fixed;
     background-color: #000;
     background-position: center center;
   }
 }
 
-/* For smaller screens (mobile) */
 @media (max-width: 767px) {
   body {
     background-size: contain;
     background-attachment: scroll;
-    background-position: center 85%; /* move penguin up a bit */
+    background-position: center 85%;
     background-color: #000;
   }
 
-  /* Move content up slightly to reveal penguin better */
   .content {
     margin-top: -30px;
     padding: 0 15px;
   }
 }
-    .ecard {
-        text-align: center;
-        padding: 60px;
-        position: relative;
-        max-width: 700px;
-        margin: 80px auto;
-        border-radius: 15px;
-        color: white;
-        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 80px rgba(255, 0, 0, 0.4);
-        overflow: hidden;
-        background: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(3px);
-    }
 
-    .ecard::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.6) 100%);
-        z-index: 0;
-    }
+.ecard {
+  text-align: center;
+  padding: 60px;
+  position: relative;
+  max-width: 700px;
+  margin: 80px auto;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 80px rgba(255, 0, 0, 0.4);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+}
 
-    .ecard > * {
-        position: relative;
-        z-index: 1;
-    }
+.ecard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 0;
+}
 
-    h1 {
-        color: #ffe66d;
-        font-size: 2.8em;
-        text-shadow: 0 0 15px #ff0000;
-    }
+.ecard > * {
+  position: relative;
+  z-index: 1;
+}
 
-    h2 {
-        color: #aaf683;
-        font-size: 1.9em;
-        margin-top: 10px;
-    }
+h1 {
+  color: #ffe66d;
+  font-size: 2.8em;
+  text-shadow: 0 0 15px #ff0000;
+}
 
-    p {
-        font-size: 1.2em;
-        color: #fff;
-    }
+h2 {
+  color: #aaf683;
+  font-size: 1.9em;
+  margin-top: 10px;
+}
 
-    .btn {
-        background-color: #d62828;
-        color: white;
-        padding: 15px 35px;
-        font-size: 1.2em;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        margin-top: 25px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        transition: all 0.3s ease;
-    }
-    .btn:hover {
-        background-color: #b71c1c;
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    }
+p {
+  font-size: 1.2em;
+  color: #fff;
+}
 
-    /* Modal styling */
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.6);
-        justify-content: center;
-        align-items: center;
-    }
+.btn {
+  background-color: #d62828;
+  color: white;
+  padding: 15px 35px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  background-color: #b71c1c;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
 
-    .modal-content {
-        background: rgba(255,255,255,0.9);
-        padding: 30px;
-        border-radius: 10px;
-        text-align: center;
-        width: 80%;
-        max-width: 400px;
-        box-shadow: 0 0 25px rgba(255,255,255,0.8), 0 0 60px rgba(255,0,0,0.3);
-        backdrop-filter: blur(5px);
-        animation: popup 0.3s ease-out;
-    }
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
 
-    @keyframes popup {
-        from { transform: scale(0.8); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
+.modal-content {
+  background: rgba(255,255,255,0.9);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.8), 0 0 60px rgba(255,0,0,0.3);
+  backdrop-filter: blur(5px);
+  animation: popup 0.3s ease-out;
+}
 
-    .close {
-        cursor: pointer;
-        color: #d62828;
-        font-size: 24px;
-        float: right;
-        margin-top: -10px;
-    }
+@keyframes popup {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
-    /* Blinking lights */
-    .lights {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-    .light {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        animation: blink 1s infinite alternate;
-        box-shadow: 0 0 10px currentColor;
-    }
-    .light.red { background-color: red; }
-    .light.green { background-color: green; animation-delay: 0.3s; }
-    .light.gold { background-color: gold; animation-delay: 0.6s; }
-    @keyframes blink {
-        0% { opacity: 1; }
-        100% { opacity: 0.3; }
-    }
+.close {
+  cursor: pointer;
+  color: #d62828;
+  font-size: 24px;
+  float: right;
+  margin-top: -10px;
+}
 
-    /* Falling snow */
-    .snowflake {
-        position: fixed;
-        top: -10px;
-        color: #fff;
-        font-size: 1em;
-        animation: fall linear infinite;
-        text-shadow: 0 0 10px white;
-    }
-    @keyframes fall {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(100vh); }
-    }
+/* Lights */
+.lights {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.light {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: blink 1s infinite alternate;
+  box-shadow: 0 0 10px currentColor;
+}
+.light.red { background-color: red; }
+.light.green { background-color: green; animation-delay: 0.3s; }
+.light.gold { background-color: gold; animation-delay: 0.6s; }
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Snow */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: #fff;
+  font-size: 1em;
+  animation: fall linear infinite;
+  text-shadow: 0 0 10px white;
+}
+@keyframes fall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
 </style>
 </head>
 <body>
 
 <div class='ecard'>
-    <div class='lights'>
-        <div class='light red'></div>
-        <div class='light green'></div>
-        <div class='light gold'></div>
-        <div class='light red'></div>
-        <div class='light green'></div>
-        <div class='light gold'></div>
-    </div>
+  <div class='lights'>
+    <div class='light red'></div>
+    <div class='light green'></div>
+    <div class='light gold'></div>
+    <div class='light red'></div>
+    <div class='light green'></div>
+    <div class='light gold'></div>
+  </div>
 
-    <h1>You're Soafer Invited!</h1>
-    <h2>Cloud OS Ops Team Year-End Party 2025</h2>
-    <p>Celebrating our small wins & Team Merging</p>
+  <h1>You're Soafer Invited!</h1>
+  <h2>Cloud OS Ops Team Year-End Party 2025</h2>
+  <p>Celebrating our small wins & Team Merging</p>
 
-    <button class='btn' onclick='openModal()'>View Details</button>
+  <!-- Multiple Buttons -->
+  <button class='btn' onclick="openModal('dateVenueModal')">Date and Venue</button>
+  <button class='btn' onclick="openModal('needToKnowModal')">Kneed to Know</button>
+  <button class='btn' onclick="openModal('commuteModal')">How to Commute</button>
 </div>
 
-<!-- Modal -->
-<div class='modal' id='detailsModal'>
-    <div class='modal-content'>
-        <span class='close' onclick='closeModal()'>&times;</span>
-        <h2>Event Details</h2>
-        <p><strong>Venue:</strong> Cattleya Resort</p>
-        <p><strong>Date:</strong> November 28–29</p>
-        <p><strong>Time:</strong> 9:00 AM – 7:00 AM</p>
-        <p><strong>Theme:</strong> Christmas Cheer & Team Spirit</p>
-    </div>
+<!-- Modal 1 -->
+<div class='modal' id='dateVenueModal'>
+  <div class='modal-content'>
+    <span class='close' onclick="closeModal('dateVenueModal')">&times;</span>
+    <h2>Date & Venue</h2>
+    <p><strong>Venue:</strong> Cattleya Resort</p>
+    <p><strong>Date:</strong> November 28–29, 2025</p>
+    <p><strong>Time:</strong> 9:00 AM – 7:00 AM</p>
+  </div>
 </div>
 
+<!-- Modal 2 -->
+<div class='modal' id='needToKnowModal'>
+  <div class='modal-content'>
+    <span class='close' onclick="closeModal('needToKnowModal')">&times;</span>
+    <h2>Kneed to Know</h2>
+    <p>🏖 Bring your swimwear, toiletries, and an extra set of clothes!</p>
+    <p>🎁 Don’t forget your gift for our exchange gift activity (₱300–₱500).</p>
+    <p>🍴 Lunch, dinner, and breakfast are provided — plus snacks!</p>
+  </div>
+</div>
+
+<!-- Modal 3: How to Commute -->
+<div class='modal' id='commuteModal'>
+  <div class='modal-content'>
+    <span class='close' onclick="closeModal('commuteModal')">&times;</span>
+    <h2>How to Commute</h2>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">🚌 From Market Market Taguig</button>
+        <div class="accordion-body">
+          <p>• Sumakay ng UV Express mula <strong>Market Market</strong> papuntang <strong>Cathedral</strong> (pamasahe: around ₱100).</p>
+          <p>• Pagbaba sa Cathedral, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong> (pamasahe: around ₱60).</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">🚉 From Gateway LRT</button>
+        <div class="accordion-body">
+          <p>• Mula <strong>Gateway LRT</strong>, sumakay ng <strong>LRT papuntang Masinag</strong>.</p>
+          <p>• Pagdating sa <strong>LRT Masinag</strong>, sakay ng <strong>jeep o bus</strong> na papuntang <strong>Antipolo Waltermart (Unciano)</strong>.</p>
+          <p>• Pagdating sa <strong>Waltermart</strong>, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong>.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">🚗 From Gateway or CP1</button>
+        <div class="accordion-body">
+          <p>• Sumakay ng <strong>bus o jeep</strong> mula <strong>Gateway o CP1</strong> papuntang <strong>Shopwise o Waltermart Antipolo</strong>.</p>
+          <p>• Pagdating sa <strong>Shopwise o Waltermart</strong>, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
 <script>
-    function openModal() {
-        document.getElementById('detailsModal').style.display = 'flex';
-    }
-    function closeModal() {
-        document.getElementById('detailsModal').style.display = 'none';
-    }
+  function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+  }
 
-    // Snow animation
-    for (let i = 0; i < 50; i++) {
-        let snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        snowflake.innerHTML = '❄';
-        document.body.appendChild(snowflake);
-    }
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  // Snow animation
+  for (let i = 0; i < 50; i++) {
+    let snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    snowflake.innerHTML = '❄';
+    document.body.appendChild(snowflake);
+  }
 </script>
 
 </body>
