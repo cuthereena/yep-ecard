@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Cloud OS Ops Team Year-End Party 2025</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #fff8f0;
+        overflow: hidden;
+    }
+    .ecard {
+        text-align: center;
+        padding: 50px;
+        background: #fff8f0;
+        position: relative;
+    }
+    h1 {
+        color: #d62828;
+        font-size: 2.5em;
+    }
+    h2 {
+        color: #2a9d8f;
+        font-size: 1.8em;
+    }
+    .btn {
+        background-color: #d62828;
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    .btn:hover {
+        background-color: #b71c1c;
+    }
+    /* Modal styling */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-content {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        width: 80%;
+        max-width: 400px;
+    }
+    .close {
+        cursor: pointer;
+        color: #d62828;
+        font-size: 20px;
+        float: right;
+    }
+    /* Falling snow */
+    .snowflake {
+        position: fixed;
+        top: -10px;
+        color: #fff;
+        font-size: 1em;
+        animation: fall linear infinite;
+    }
+    @keyframes fall {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(100vh); }
+    }
+    /* Blinking lights */
+    .lights {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .light {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        animation: blink 1s infinite alternate;
+    }
+    .light.red { background-color: red; }
+    .light.green { background-color: green; animation-delay: 0.3s; }
+    .light.gold { background-color: gold; animation-delay: 0.6s; }
+    @keyframes blink {
+        0% { opacity: 1; }
+        100% { opacity: 0.3; }
+    }
+</style>
+</head>
+<body>
+<div class='ecard'>
+    <div class='lights'>
+        <div class='light red'></div>
+        <div class='light green'></div>
+        <div class='light gold'></div>
+        <div class='light red'></div>
+        <div class='light green'></div>
+        <div class='light gold'></div>
+    </div>
+    <h1>You're Invited!</h1>
+    <h2>Cloud OS Ops Team Year-End Party 2025</h2>
+    <p>Celebrating Success & Team Spirit</p>
+    <button class='btn' onclick='openModal()'>View Details</button>
+</div>
+<div class='modal' id='detailsModal'>
+    <div class='modal-content'>
+        <span class='close' onclick='closeModal()'>&times;</span>
+        <h2>Event Details</h2>
+        <p><strong>Venue:</strong> Cattleya Resort</p>
+        <p><strong>Date:</strong> November 28–29</p>
+        <p><strong>Time:</strong> 9:00 AM – 7:00 AM</p>
+        <p><strong>Theme:</strong> Christmas Cheer & Team Spirit</p>
+    </div>
+</div>
+<script>
+    function openModal() {
+        document.getElementById('detailsModal').style.display = 'flex';
+    }
+    function closeModal() {
+        document.getElementById('detailsModal').style.display = 'none';
+    }
+    // Snow animation
+    for (let i = 0; i < 50; i++) {
+        let snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        snowflake.innerHTML = '❄';
+        document.body.appendChild(snowflake);
+    }
+</script>
+</body>
+</html>
