@@ -228,11 +228,14 @@ p {
 <div class='modal' id='commuteModal'>
   <div class='modal-content'>
     <span class='close' onclick="closeModal('commuteModal')">&times;</span>
-    <h2>How to Commute</h2>
+    <h2>❄️ How to Commute</h2>
 
     <div class="accordion">
       <div class="accordion-item">
-        <button class="accordion-header">🚌 From Market Market Taguig</button>
+        <button class="accordion-header">
+          <span class="icon">🚌</span> From Market Market Taguig
+          <span class="snowflake">❄️</span>
+        </button>
         <div class="accordion-body">
           <p>• Sumakay ng UV Express mula <strong>Market Market</strong> papuntang <strong>Cathedral</strong> (pamasahe: around ₱100).</p>
           <p>• Pagbaba sa Cathedral, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong> (pamasahe: around ₱60).</p>
@@ -240,7 +243,10 @@ p {
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">🚉 From Gateway LRT</button>
+        <button class="accordion-header">
+          <span class="icon">🚉</span> From Gateway LRT
+          <span class="snowflake">❄️</span>
+        </button>
         <div class="accordion-body">
           <p>• Mula <strong>Gateway LRT</strong>, sumakay ng <strong>LRT papuntang Masinag</strong>.</p>
           <p>• Pagdating sa <strong>LRT Masinag</strong>, sakay ng <strong>jeep o bus</strong> na papuntang <strong>Antipolo Waltermart (Unciano)</strong>.</p>
@@ -249,7 +255,10 @@ p {
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">🚗 From Gateway or CP1</button>
+        <button class="accordion-header">
+          <span class="icon">🚗</span> From Gateway or CP1
+          <span class="snowflake">❄️</span>
+        </button>
         <div class="accordion-body">
           <p>• Sumakay ng <strong>bus o jeep</strong> mula <strong>Gateway o CP1</strong> papuntang <strong>Shopwise o Waltermart Antipolo</strong>.</p>
           <p>• Pagdating sa <strong>Shopwise o Waltermart</strong>, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong>.</p>
@@ -258,44 +267,78 @@ p {
     </div>
   </div>
 </div>
-/* Accordion styles */
+  
+/* Accordion styles - festive version */
 .accordion {
   margin-top: 15px;
   text-align: left;
 }
 
 .accordion-header {
-  background-color: #d62828;
+  background: linear-gradient(90deg, #b71c1c, #d62828, #e63946);
   color: #fff;
-  padding: 12px 18px;
-  font-size: 1em;
+  padding: 14px 18px;
+  font-size: 1.05em;
   border: none;
   outline: none;
   width: 100%;
   text-align: left;
   cursor: pointer;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  transition: background-color 0.3s ease;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  animation: glowPulse 3s infinite alternate;
 }
 
 .accordion-header:hover {
-  background-color: #b71c1c;
+  background: linear-gradient(90deg, #e63946, #b71c1c);
+  transform: scale(1.02);
+}
+
+.accordion-header .icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.accordion-header .snowflake {
+  animation: spinSnowflake 5s linear infinite;
+  font-size: 1.2em;
 }
 
 .accordion-body {
   display: none;
-  padding: 10px 18px;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.85);
   color: #000;
-  border-radius: 8px;
-  margin-bottom: 12px;
+  border-radius: 12px;
+  margin-bottom: 14px;
   animation: fadeIn 0.3s ease-in-out;
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
 .accordion-body p {
-  margin: 5px 0;
+  margin: 6px 0;
   font-size: 0.95em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spinSnowflake {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glowPulse {
+  from { box-shadow: 0 0 6px rgba(255, 255, 255, 0.5); }
+  to { box-shadow: 0 0 16px rgba(255, 255, 255, 0.9); }
 }
 
 @keyframes fadeIn {
@@ -304,22 +347,6 @@ p {
 }
   
 <script>
-// Accordion functionality
-document.querySelectorAll('.accordion-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const body = header.nextElementSibling;
-    const openBody = document.querySelector('.accordion-body[style*="block"]');
-    
-    // Close other open section
-    if (openBody && openBody !== body) {
-      openBody.style.display = 'none';
-    }
-
-    // Toggle current section
-    body.style.display = (body.style.display === 'block') ? 'none' : 'block';
-  });
-});
-
   function openModal(id) {
     document.getElementById(id).style.display = 'flex';
   }
