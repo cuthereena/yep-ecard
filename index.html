@@ -26,6 +26,7 @@ body {
     background-size: contain; /* keep full image visible */
     background-attachment: fixed; /* parallax style */
     background-color: #000;
+    background-position: center center;
   }
 }
 
@@ -34,7 +35,14 @@ body {
   body {
     background-size: contain;
     background-attachment: scroll;
-    background-position: center top;
+    background-position: center 85%; /* move penguin up a bit */
+    background-color: #000;
+  }
+
+  /* Move content up slightly to reveal penguin better */
+  .content {
+    margin-top: -30px;
+    padding: 0 15px;
   }
 }
     .ecard {
