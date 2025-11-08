@@ -102,8 +102,6 @@ p {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 25px;
-  margin-right: 10px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
@@ -111,6 +109,21 @@ p {
   background-color: #b71c1c;
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* Button group for responsive layout */
+.button-group {
+  display: flex;
+  flex-wrap: wrap; /* Wrap on smaller screens */
+  justify-content: center; /* Center buttons */
+  gap: 10px; /* Space between buttons */
+  margin-top: 25px;
+}
+
+@media (max-width: 480px) {
+  .button-group .btn {
+    flex: 1 1 100%; /* Full width on very small screens */
+  }
 }
 
 /* Modal styling */
@@ -241,10 +254,12 @@ p {
   <h2>Cloud OS Ops Team Year-End Party 2025</h2>
   <p>Celebrating our small wins & Team Merging</p>
 
-  <!-- Multiple Buttons -->
-  <button class='btn' onclick="openModal('dateVenueModal')">Date and Venue</button>
-  <button class='btn' onclick="openModal('needToKnowModal')">Kneed to Know</button>
-  <button class='btn' onclick="openModal('commuteModal')">How to Commute</button>
+  <!-- Button group for responsive layout -->
+  <div class="button-group">
+    <button class='btn' onclick="openModal('dateVenueModal')">Date and Venue</button>
+    <button class='btn' onclick="openModal('needToKnowModal')">Kneed to Know</button>
+    <button class='btn' onclick="openModal('commuteModal')">How to Commute</button>
+  </div>
 </div>
 
 <!-- Modal 1 -->
