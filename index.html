@@ -43,6 +43,24 @@ body {
   }
 }
 
+.ecard-footer {
+  text-align: center;
+  color: #ffb6c1;
+  font-family: "Comic Sans MS", "Segoe Script", cursive;
+  font-size: 1.1em;
+  margin-top: 30px;
+  padding: 15px 0;
+  text-shadow: 0 0 10px #ff69b4;
+  animation: glow 2s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
+  to { text-shadow: 0 0 20px #ffb6c1, 0 0 30px #ff69b4; }
+}  
+
 .ecard {
   text-align: center;
   padding: 60px;
