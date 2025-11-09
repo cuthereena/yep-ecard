@@ -114,6 +114,7 @@ p {
   background-color: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
@@ -217,9 +218,10 @@ p {
 </footer>
 
 <!-- Music -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop preload="auto">
   <source src="https://cdn.pixabay.com/download/audio/2022/11/15/audio_b8f5d6e1cc.mp3?filename=christmas-jingle-126735.mp3" type="audio/mpeg">
 </audio>
+
 <button class="music-btn" id="musicToggle" title="Toggle Music">🔕</button>
 
 <script>
@@ -230,20 +232,24 @@ function closeModal(id) {
   document.getElementById(id).style.display = 'none';
 }
 
-// Music Control
+// Music Toggle
 const music = document.getElementById('bgMusic');
 const toggleBtn = document.getElementById('musicToggle');
-let playing = false;
+let isPlaying = false;
 
-toggleBtn.addEventListener('click', () => {
-  if (!playing) {
-    music.play();
-    toggleBtn.textContent = '🔔';
-    playing = true;
-  } else {
-    music.pause();
-    toggleBtn.textContent = '🔕';
-    playing = false;
+toggleBtn.addEventListener('click', async () => {
+  try {
+    if (!isPlaying) {
+      await music.play();
+      toggleBtn.textContent = '🔔';
+      isPlaying = true;
+    } else {
+      music.pause();
+      toggleBtn.textContent = '🔕';
+      isPlaying = false;
+    }
+  } catch (e) {
+    console.error("Playback failed:", e);
   }
 });
 </script>
