@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Cloud OS Ops Team Year-End Party 2025</title>
 <style>
+/* ========== Page background & layout ========== */
 body {
   margin: 0;
   padding: 0;
@@ -59,8 +59,8 @@ body {
 
 @keyframes glow {
   from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
-  to { text-shadow: 0 0 20px #ffb6c1, 0 0 30px #ff69b4; }
-}  
+  to   { text-shadow: 0 0 20px #ffb6c1, 0 0 30px #ff69b4; }
+}
 
 .ecard {
   text-align: center;
@@ -106,7 +106,7 @@ p {
   color: #fff;
 }
 
-/* Button group for alignment */
+/* ========== Buttons ========== */
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -115,7 +115,6 @@ p {
   margin-top: 25px;
 }
 
-/* Make buttons full-width on very small screens */
 @media (max-width: 480px) {
   .button-group .btn {
     flex: 1 1 100%;
@@ -139,20 +138,27 @@ p {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
-/* Modal styling */
+/* ========== Modal core styling (FIXED) ========== */
 .modal {
-  display: none;
+  display: none;              /* hidden by default */
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;                   /* top:0; right:0; bottom:0; left:0 */
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
+  justify-content: center;    /* center horizontally */
+  align-items: center;        /* center vertically */
   z-index: 100;
+  opacity: 0;                 /* for fade animation */
+  transition: opacity 200ms ease-in-out;
 }
 
+/* when JS sets display:flex, add a class for fade-in */
+.modal.show {
+  opacity: 1;
+}
+
+/* modal panel */
 .modal-content {
   background: rgba(0,0,0,0.95);
   color: #fff;
@@ -163,18 +169,17 @@ p {
   max-width: 500px;
   box-shadow: 0 0 25px rgba(255,255,255,0.8), 0 0 60px rgba(255,0,0,0.3);
   backdrop-filter: blur(5px);
-  animation: popup 0.3s ease-out;
+  animation: popup 220ms ease-out;
   overflow-y: auto;
 }
 
-/* 🔹 Wide modal variant for tables (ADDED) */
+/* Wide variant for tables */
 .modal-content.wide {
   text-align: left;
   width: 90%;
   max-width: 900px;
 }
 
-/* Mobile scrollable modal */
 @media (max-width: 767px) {
   .modal-content {
     width: 90%;
@@ -190,8 +195,8 @@ p {
 }
 
 @keyframes popup {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
 }
 
 .close {
@@ -202,7 +207,12 @@ p {
   margin-top: -10px;
 }
 
-/* Map container styling */
+/* Prevent background scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ========== Map container ========== */
 .map-container {
   position: relative;
   width: 100%;
@@ -211,18 +221,13 @@ p {
   border-radius: 10px;
   overflow: hidden;
 }
-
 .map-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 10px;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0; border-radius: 10px;
 }
 
-/* Lights */
+/* ========== Lights & Snow ========== */
 .lights {
   display: flex;
   justify-content: center;
@@ -230,102 +235,50 @@ p {
   margin-bottom: 20px;
 }
 .light {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  width: 20px; height: 20px; border-radius: 50%;
   animation: blink 1s infinite alternate;
   box-shadow: 0 0 10px currentColor;
 }
-.light.red { background-color: red; }
+.light.red   { background-color: red; }
 .light.green { background-color: green; animation-delay: 0.3s; }
-.light.gold { background-color: gold; animation-delay: 0.6s; }
-@keyframes blink {
-  0% { opacity: 1; }
-  100% { opacity: 0.3; }
-}
+.light.gold  { background-color: gold;  animation-delay: 0.6s; }
+@keyframes blink { 0% { opacity: 1; } 100% { opacity: 0.3; } }
 
-/* Snow */
 .snowflake {
-  position: fixed;
-  top: -10px;
-  color: #fff;
-  font-size: 1em;
-  animation: fall linear infinite;
-  text-shadow: 0 0 10px white;
+  position: fixed; top: -10px; color: #fff; font-size: 1em;
+  animation: fall linear infinite; text-shadow: 0 0 10px white;
 }
-@keyframes fall {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh); }
-}
+@keyframes fall { 0% { transform: translateY(0); } 100% { transform: translateY(100vh); } }
 
-/* 🔹 Carpool table styles (ADDED) */
-.table-tools {               /* toolbar above table */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  margin: 10px 0 6px;
+/* ========== Carpool table styles ========== */
+.table-tools {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 6px;
 }
-.table-tools .btn {
-  padding: 8px 14px;
-  font-size: 0.95em;
-}
+.table-tools .btn { padding: 8px 14px; font-size: 0.95em; }
 .table-tools input[type="text"] {
-  flex: 1 1 240px;
-  min-width: 180px;
-  padding: 9px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.08);
-  color: #fff;
+  flex: 1 1 240px; min-width: 180px; padding: 9px 12px;
+  border-radius: 8px; border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08); color: #fff;
 }
 
-.table-wrap {
-  overflow-x: auto;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-.carpool-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95em;
-  color: #fff;
-}
+.table-wrap { overflow-x: auto; border-radius: 8px; margin-top: 10px; }
+.carpool-table { width: 100%; border-collapse: collapse; font-size: 0.95em; color: #fff; }
 .carpool-table th, .carpool-table td {
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 10px;
-  vertical-align: top;
+  padding: 10px; vertical-align: top;
 }
 .carpool-table thead th {
   background: rgba(255,255,255,0.12);
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(3px);
+  position: sticky; top: 0; backdrop-filter: blur(3px);
 }
-.carpool-table tbody tr:nth-child(even) {
-  background: rgba(255,255,255,0.06);
-}
+.carpool-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.06); }
 
-/* badges (kept) */
-.badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 0.85em;
-  line-height: 1.2;
-}
-.badge.full { background: #8b0000; }
+.badge { display: inline-block; padding: 4px 8px; border-radius: 6px; font-size: 0.85em; line-height: 1.2; }
+.badge.full  { background: #8b0000; }
 .badge.seats { background: #1b5e20; }
 
-/* 🔹 Auto-color classes for direct cell coloring (ADDED) */
-.status-full {
-  background: #4a0000;
-  color: #fff;
-}
-.status-available {
-  background: #0f3d1a;
-  color: #fff;
-}
+.status-full      { background: #4a0000; color: #fff; }
+.status-available { background: #0f3d1a; color: #fff; }
 </style>
 </head>
 <body>
@@ -349,7 +302,6 @@ p {
     <button class='btn' onclick="openModal('dateVenueModal')">Date and Venue</button>
     <button class='btn' onclick="openModal('needToKnowModal')">Kneed to Know</button>
     <button class='btn' onclick="openModal('commuteModal')">How to Commute</button>
-    <!-- 🔹 New button for Modal 4 (ADDED) -->
     <button class='btn' onclick="openModal('carpoolModal')">Carpool / Ride Matrix</button>
   </div>
 </div>
@@ -357,24 +309,24 @@ p {
 <footer class="ecard-footer">
   💖 Created with love by <strong>Kat Gorgeous 🌸🌷</strong>
 </footer>
-  
-<!-- Modal 1:🗓️ Date & Venue -->
-<div class='modal' id='dateVenueModal'>
+
+<!-- Modal 1: Date & Venue -->
+<div class='modal' id='dateVenueModal' aria-hidden="true">
   <div class='modal-content'>
-    <span class='close' onclick="closeModal('dateVenueModal')">&times;</span>
+    <span class='close' onclick="closeModal('dateVenueModal')" aria-label="Close">&times;</span>
     <h2>Date &amp; Venue</h2>
     <p><strong>Venue:</strong> Cattleya Resort</p>
     <p><strong>Date:</strong> November 28–29, 2025</p>
     <p><strong>Time:</strong> 9:00 AM – 7:00 AM</p>
 
-    <!-- Embedded Map -->
     <div class="map-container">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61785.45862651111!2d121.13229358379165!3d14.565356694512502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c0b4e93b45b9%3A0xbbc920018759343c!2sCattleya%20Resort!5e0!3m2!1sen!2sph!4v1762692660935!5m2!1sen!2sph"
         allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-dowmodal-content'>
-    <span class='close' onclick="closeModal('needToKnowModal')">&times;</span>
+        referrerpolicy="no-referrer-when-downgradedden="true">
+  <div class='modal-content'>
+    <span class='close' onclick="closeModal('needToKnowModal')" aria-label="Close">&times;</span>
     <h2>💡Kneed to Know</h2>
     <p>🏖 Bring your swimwear, toiletries, and an extra set of clothes!</p>
     <p>🎁 Don’t forget your gift for our exchange gift activity.</p>
@@ -385,9 +337,9 @@ p {
 </div>
 
 <!-- Modal 3: How to Commute -->
-<div class='modal' id='commuteModal'>
+<div class='modal' id='commuteModal' aria-hidden="true">
   <div class='modal-content'>
-    <span class='close' onclick="closeModal('commuteModal')">&times;</span>
+    <span class='close' onclick="closeModal('commuteModal')" aria-label="Close">&times;</span>
     <h2>❄️ How to Commute</h2>
 
     <div class="accordion">
@@ -425,14 +377,13 @@ p {
   </div>
 </div>
 
-<!-- 🔹 Modal 4: Carpool / Ride Matrix (ADDED) -->
-<div class='modal' id='carpoolModal'>
+<!-- Modal 4: Carpool -->
+<div class='modal' id='carpoolModal' aria-hidden="true">
   <div class='modal-content wide'>
-    <span class='close' onclick="closeModal('carpoolModal')">&times;</span>
+    <span class='close' onclick="closeModal('carpoolModal')" aria-label="Close">&times;</span>
     <h2>🚐 Carpool / Ride Matrix</h2>
     <p style="margin-top:-6px;opacity:0.85;">Capacity excludes the driver.</p>
 
-    <!-- 🔹 Tools: filter/search/copy (ADDED) -->
     <div class="table-tools">
       <button class="btn" data-filter="all">All</button>
       <button class="btn" data-filter="available">Only Available</button>
@@ -515,24 +466,48 @@ p {
     </div>
   </div>
 </div>
-  
+
 <script>
+  /* ===== Modal open/close (FIXED) ===== */
   function openModal(id) {
-    document.getElementById(id).style.display = 'flex';
-    // Focus search when opening carpool modal for quick filtering (ADDED)
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.style.display = 'flex';   // make it flex container
+    // force reflow before adding show class for fade-in
+    void modal.offsetWidth;
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+
+    // focus search when opening carpool modal
     if (id === 'carpoolModal') {
       setTimeout(() => {
         const s = document.getElementById('carpoolSearch');
         if (s) s.focus();
-      }, 100);
+      }, 120);
     }
   }
 
   function closeModal(id) {
-    document.getElementById(id).style.display = 'none';
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    // wait for fade-out then hide
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 180);
   }
 
-  // Snow animation
+  // Optional: close on overlay click (but not when clicking panel)
+  document.querySelectorAll('.modal').forEach(m => {
+    m.addEventListener('click', (e) => {
+      if (e.target === m) closeModal(m.id);
+    });
+  });
+
+  /* ===== Snow animation ===== */
   for (let i = 0; i < 50; i++) {
     let snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
@@ -542,28 +517,23 @@ p {
     document.body.appendChild(snowflake);
   }
 
-  // Accordion functionality
+  /* ===== Accordion functionality ===== */
   document.querySelectorAll('.accordion-header').forEach(header => {
     header.addEventListener('click', () => {
       const body = header.nextElementSibling;
       const openBody = document.querySelector('.accordion-body[style*="block"]');
-      if (openBody && openBody !== body) {
-        openBody.style.display = 'none';
-      }
+      if (openBody && openBody !== body) openBody.style.display = 'none';
       body.style.display = (body.style.display === 'block') ? 'none' : 'block';
     });
   });
 
-  /* ===== Carpool table enhancements (ADDED) ===== */
-
-  // 1) Auto-color Status cells based on text content.
+  /* ===== Carpool table enhancements ===== */
   function colorStatusCells() {
     const rows = document.querySelectorAll('#carpoolTable tbody tr');
     rows.forEach(row => {
       const statusCell = row.cells[5];
       if (!statusCell) return;
       const text = statusCell.textContent.trim().toLowerCase();
-      // remove previous classes
       statusCell.classList.remove('status-full', 'status-available');
       if (text.includes('full')) {
         statusCell.classList.add('status-full');
@@ -574,11 +544,9 @@ p {
   }
   colorStatusCells();
 
-  // 2) Filtering: buttons + live search
-  const toolBar = document.querySelector('.table-tools');
-  const searchInput = document.getElementById('carpoolSearch');
-
+  // Filtering: buttons + live search
   let currentFilter = 'all'; // all | available | full
+  const searchInput = document.getElementById('carpoolSearch');
 
   function applyFilters() {
     const q = (searchInput?.value || '').trim().toLowerCase();
@@ -595,19 +563,17 @@ p {
     });
   }
 
-  // filter buttons
-  toolBar?.querySelectorAll('button[data-filter]').forEach(btn => {
+  document.querySelectorAll('.table-tools button[data-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
       currentFilter = btn.getAttribute('data-filter');
       applyFilters();
     });
   });
 
-  // live search
   searchInput?.addEventListener('input', applyFilters);
 
-  // 3) Copy to clipboard (visible rows only)
-  document.getElementById('copyCarpool')?.addEventListener('click', async () => {
+  // Copy visible rows to clipboard
+  document.getElementById('copyCarpool')?.addEventListener('click', async (event) => {
     const table = document.getElementById('carpoolTable');
     const rows = Array.from(table.querySelectorAll('tbody tr')).filter(r => r.style.display !== 'none');
     const header = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim()).join('\t');
@@ -623,7 +589,6 @@ p {
       alert('Copy failed. Your browser may block clipboard access.');
     }
   });
-
 </script>
 
 </body>
