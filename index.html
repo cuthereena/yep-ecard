@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <title>Cloud OS Ops Team Year-End Party 2025</title>
 <style>
-/* ========== Page background & layout ========== */
 body {
   margin: 0;
   padding: 0;
@@ -53,13 +52,11 @@ body {
   padding: 15px 0;
   text-shadow: 0 0 10px #ff69b4;
   animation: glow 2s ease-in-out infinite alternate;
-  position: relative;
-  z-index: 10;
 }
 
 @keyframes glow {
   from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
-  to   { text-shadow: 0 0 20px #ffb6c1, 0 0 30px #ff69b4; }
+  to { text-shadow: 0 0 20px #ffb6c1, 0 0 30px #ff69b4; }
 }
 
 .ecard {
@@ -71,22 +68,8 @@ body {
   border-radius: 15px;
   color: white;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 80px rgba(255, 0, 0, 0.4);
-  overflow: hidden;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(3px);
-}
-
-.ecard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.6) 100%);
-  z-index: 0;
-}
-
-.ecard > * {
-  position: relative;
-  z-index: 1;
 }
 
 h1 {
@@ -106,7 +89,7 @@ p {
   color: #fff;
 }
 
-/* ========== Buttons ========== */
+/* Buttons */
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -135,30 +118,22 @@ p {
 .btn:hover {
   background-color: #b71c1c;
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
-/* ========== Modal core styling (FIXED) ========== */
+/* Modal */
 .modal {
-  display: none;              /* hidden by default */
+  display: none;
   position: fixed;
-  inset: 0;                   /* top:0; right:0; bottom:0; left:0 */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.6);
-  justify-content: center;    /* center horizontally */
-  align-items: center;        /* center vertically */
+  justify-content: center;
+  align-items: center;
   z-index: 100;
-  opacity: 0;                 /* for fade animation */
-  transition: opacity 200ms ease-in-out;
 }
 
-/* when JS sets display:flex, add a class for fade-in */
-.modal.show {
-  opacity: 1;
-}
-
-/* modal panel */
 .modal-content {
   background: rgba(0,0,0,0.95);
   color: #fff;
@@ -169,34 +144,22 @@ p {
   max-width: 500px;
   box-shadow: 0 0 25px rgba(255,255,255,0.8), 0 0 60px rgba(255,0,0,0.3);
   backdrop-filter: blur(5px);
-  animation: popup 220ms ease-out;
+  animation: popup 0.3s ease-out;
   overflow-y: auto;
 }
 
-/* Wide variant for tables */
-.modal-content.wide {
-  text-align: left;
-  width: 90%;
-  max-width: 900px;
-}
-
+/* Mobile modal */
 @media (max-width: 767px) {
   .modal-content {
     width: 90%;
-    max-width: 90%;
     max-height: 80vh;
-    overflow-y: auto;
     padding: 20px;
-  }
-  .modal-content.wide {
-    width: 95%;
-    max-width: 95%;
   }
 }
 
 @keyframes popup {
-  from { transform: scale(0.92); opacity: 0; }
-  to   { transform: scale(1);    opacity: 1; }
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .close {
@@ -207,12 +170,7 @@ p {
   margin-top: -10px;
 }
 
-/* Prevent background scroll when modal is open */
-body.modal-open {
-  overflow: hidden;
-}
-
-/* ========== Map container ========== */
+/* Map */
 .map-container {
   position: relative;
   width: 100%;
@@ -221,13 +179,18 @@ body.modal-open {
   border-radius: 10px;
   overflow: hidden;
 }
+
 .map-container iframe {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: 0; border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 10px;
 }
 
-/* ========== Lights & Snow ========== */
+/* Lights */
 .lights {
   display: flex;
   justify-content: center;
@@ -235,52 +198,36 @@ body.modal-open {
   margin-bottom: 20px;
 }
 .light {
-  width: 20px; height: 20px; border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
   animation: blink 1s infinite alternate;
   box-shadow: 0 0 10px currentColor;
 }
-.light.red   { background-color: red; }
+.light.red { background-color: red; }
 .light.green { background-color: green; animation-delay: 0.3s; }
-.light.gold  { background-color: gold;  animation-delay: 0.6s; }
-@keyframes blink { 0% { opacity: 1; } 100% { opacity: 0.3; } }
+.light.gold { background-color: gold; animation-delay: 0.6s; }
 
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Snow */
 .snowflake {
-  position: fixed; top: -10px; color: #fff; font-size: 1em;
-  animation: fall linear infinite; text-shadow: 0 0 10px white;
+  position: fixed;
+  top: -10px;
+  color: #fff;
+  font-size: 1em;
+  animation: fall linear infinite;
 }
-@keyframes fall { 0% { transform: translateY(0); } 100% { transform: translateY(100vh); } }
-
-/* ========== Carpool table styles ========== */
-.table-tools {
-  display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 6px;
+@keyframes fall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
 }
-.table-tools .btn { padding: 8px 14px; font-size: 0.95em; }
-.table-tools input[type="text"] {
-  flex: 1 1 240px; min-width: 180px; padding: 9px 12px;
-  border-radius: 8px; border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.08); color: #fff;
-}
-
-.table-wrap { overflow-x: auto; border-radius: 8px; margin-top: 10px; }
-.carpool-table { width: 100%; border-collapse: collapse; font-size: 0.95em; color: #fff; }
-.carpool-table th, .carpool-table td {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 10px; vertical-align: top;
-}
-.carpool-table thead th {
-  background: rgba(255,255,255,0.12);
-  position: sticky; top: 0; backdrop-filter: blur(3px);
-}
-.carpool-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.06); }
-
-.badge { display: inline-block; padding: 4px 8px; border-radius: 6px; font-size: 0.85em; line-height: 1.2; }
-.badge.full  { background: #8b0000; }
-.badge.seats { background: #1b5e20; }
-
-.status-full      { background: #4a0000; color: #fff; }
-.status-available { background: #0f3d1a; color: #fff; }
 </style>
 </head>
+
 <body>
 
 <div class='ecard'>
@@ -295,14 +242,13 @@ body.modal-open {
 
   <h1>You're Soafer Invited!</h1>
   <h2>Cloud OS Ops Team Year-End Party 2025</h2>
-  <p>Celebrating our small wins &amp; Team Merging</p>
+  <p>Celebrating our small wins & Team Merging</p>
 
-  <!-- Button Group -->
   <div class="button-group">
-    <button class='btn' onclick="openModal('dateVenueModal')">Date and Venue</button>
+    <button class='btn' onclick="openModal('dateVenueModal')">Date & Venue</button>
     <button class='btn' onclick="openModal('needToKnowModal')">Kneed to Know</button>
     <button class='btn' onclick="openModal('commuteModal')">How to Commute</button>
-    <button class='btn' onclick="openModal('carpoolModal')">Carpool / Ride Matrix</button>
+    <button class='btn' onclick="openModal('carpoolModal')">Carpool Drivers</button>
   </div>
 </div>
 
@@ -310,67 +256,63 @@ body.modal-open {
   💖 Created with love by <strong>Kat Gorgeous 🌸🌷</strong>
 </footer>
 
-<!-- Modal 1: Date & Venue -->
-<div class='modal' id='dateVenueModal' aria-hidden="true">
+<!-- Modal 1 -->
+<div class='modal' id='dateVenueModal'>
   <div class='modal-content'>
-    <span class='close' onclick="closeModal('dateVenueModal')" aria-label="Close">&times;</span>
-    <h2>Date &amp; Venue</h2>
+    <span class='close' onclick="closeModal('dateVenueModal')">&times;</span>
+    <h2>Date & Venue</h2>
     <p><strong>Venue:</strong> Cattleya Resort</p>
     <p><strong>Date:</strong> November 28–29, 2025</p>
     <p><strong>Time:</strong> 9:00 AM – 7:00 AM</p>
 
     <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61785.45862651111!2d121.13229358379165!3d14.565356694512502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c0b4e93b45b9%3A0xbbc920018759343c!2sCattleya%20Resort!5e0!3m2!1sen!2sph!4v1762692660935!5m2!1sen!2sph"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgradedden="true">
-  <div class='modal-content'>
-    <span class='close' onclick="closeModal('needToKnowModal')" aria-label="Close">&times;</span>
-    <h2>💡Kneed to Know</h2>
-    <p>🏖 Bring your swimwear, toiletries, and an extra set of clothes!</p>
-    <p>🎁 Don’t forget your gift for our exchange gift activity.</p>
-    <p>🍴 Lunch, dinner, and breakfast are provided — plus snacks!</p>
-    <p>🛏️ Only 1 Bedroom available with 7 beds inside.</p>
-    <p>🥤Dala ka na din tumbler for your water and drinks.</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." loading="lazy"></iframe>
+    </div>
   </div>
 </div>
 
-<!-- Modal 3: How to Commute -->
-<div class='modal' id='commuteModal' aria-hidden="true">
+<!-- Modal 2 -->
+<div class='modal' id='needToKnowModal'>
   <div class='modal-content'>
-    <span class='close' onclick="closeModal('commuteModal')" aria-label="Close">&times;</span>
+    <span class='close' onclick="closeModal('needToKnowModal')">&times;</span>
+    <h2>💡Kneed to Know</h2>
+    <p>🏖 Bring your swimwear, toiletries, and an extra set of clothes!</p>
+    <p>🎁 Don’t forget your gift for our exchange gift activity.</p>
+    <p>🍴 Lunch, dinner, and breakfast are provided!</p>
+    <p>🛏️ Only 1 Bedroom available with 7 beds inside.</p>
+    <p>🥤 Bring your tumbler for water & drinks.</p>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+<div class='modal' id='commuteModal'>
+  <div class='modal-content'>
+    <span class='close' onclick="closeModal('commuteModal')">&times;</span>
     <h2>❄️ How to Commute</h2>
 
     <div class="accordion">
       <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="icon">🚌</span> From Market Market Taguig
-        </button>
+        <button class="accordion-header">🚌 From Market Market Taguig</button>
         <div class="accordion-body" style="display:none;">
-          <p>• Sumakay ng UV Express mula <strong>Market Market</strong> papuntang <strong>Cathedral</strong> (pamasahe: around ₱100).</p>
-          <p>• Pagbaba sa Cathedral, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong> (pamasahe: around ₱60).</p>
+          <p>• UV Express to Cathedral (~₱100)</p>
+          <p>• Tricycle to Cattleya (~₱60)</p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="icon">🚉</span> From Gateway LRT
-        </button>
+        <button class="accordion-header">🚉 From Gateway LRT</button>
         <div class="accordion-body" style="display:none;">
-          <p>• Mula <strong>Gateway LRT</strong>, sumakay ng <strong>LRT papuntang Masinag</strong>.</p>
-          <p>• Pagdating sa <strong>LRT Masinag</strong>, sakay ng <strong>jeep o bus</strong> na papuntang <strong>Antipolo Waltermart (Unciano)</strong>.</p>
-          <p>• Pagdating sa <strong>Waltermart</strong>, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong>.</p>
+          <p>• LRT to Masinag</p>
+          <p>• Jeep/bus to Waltermart</p>
+          <p>• Tricycle to Cattleya Resort</p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="icon">🚗</span> From Gateway or CP1
-        </button>
+        <button class="accordion-header">🚗 From Gateway / CP1</button>
         <div class="accordion-body" style="display:none;">
-          <p>• Sumakay ng <strong>bus o jeep</strong> mula <strong>Gateway o CP1</strong> papuntang <strong>Shopwise o Waltermart Antipolo</strong>.</p>
-          <p>• Pagdating sa <strong>Shopwise o Waltermart</strong>, sumakay ng <strong>tricycle</strong> papuntang <strong>Cattleya Resort</strong>.</p>
+          <p>• Bus/jeep to Shopwise / Waltermart</p>
+          <p>• Tricycle to Cattleya Resort</p>
         </div>
       </div>
     </div>
@@ -378,217 +320,65 @@ body.modal-open {
 </div>
 
 <!-- Modal 4: Carpool -->
-<div class='modal' id='carpoolModal' aria-hidden="true">
-  <div class='modal-content wide'>
-    <span class='close' onclick="closeModal('carpoolModal')" aria-label="Close">&times;</span>
-    <h2>🚐 Carpool / Ride Matrix</h2>
-    <p style="margin-top:-6px;opacity:0.85;">Capacity excludes the driver.</p>
+<div class='modal' id='carpoolModal'>
+  <div class='modal-content' style="max-width:700px;">
+    <span class='close' onclick="closeModal('carpoolModal')">&times;</span>
+    <h2>🚗 Carpool Drivers</h2>
 
-    <div class="table-tools">
-      <button class="btn" data-filter="all">All</button>
-      <button class="btn" data-filter="available">Only Available</button>
-      <button class="btn" data-filter="full">Only Full</button>
-      <input type="text" id="carpoolSearch" placeholder="Search driver, car type, location…">
-      <button class="btn" id="copyCarpool">Copy Visible Rows</button>
-    </div>
-
-    <div class="table-wrap">
-      <table class="carpool-table" id="carpoolTable">
+    <div style="overflow-x:auto; margin-top:15px;">
+      <table style="width:100%; border-collapse: collapse; color:white; font-size: 0.9em;">
         <thead>
-          <tr>
-            <th>Driver</th>
-            <th>Car Type</th>
-            <th>Capacity (Driver excluded)</th>
-            <th>Pick-up Location</th>
-            <th>Availability</th>
-            <th>Status</th>
+          <tr style="background:#d62828;">
+            <th style="padding:8px; border:1px solid #444;">Driver</th>
+            <th style="padding:8px; border:1px solid #444;">Car Type</th>
+            <th style="padding:8px; border:1px solid #444;">Capacity</th>
+            <th style="padding:8px; border:1px solid #444;">Pick-up Location</th>
+            <th style="padding:8px; border:1px solid #444;">Availability</th>
+            <th style="padding:8px; border:1px solid #444;">Status</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Ren</td>
-            <td>Hatchback</td>
-            <td>4</td>
-            <td>Cavite Area (Imus, Dasma)</td>
-            <td>Any date / time</td>
-            <td>Full</td>
-          </tr>
-          <tr>
-            <td>Aris</td>
-            <td>SUV</td>
-            <td>4</td>
-            <td>Cubao / Gateway / CP1</td>
-            <td>Nov 28 Up to 7pm only</td>
-            <td>3 seats available</td>
-          </tr>
-          <tr>
-            <td>Ally</td>
-            <td>Sedan</td>
-            <td>3–4</td>
-            <td>Anywhere along the way from Sto. Tomas, Batangas</td>
-            <td>Depends on the agreed date</td>
-            <td>3 seats available</td>
-          </tr>
-          <tr>
-            <td>Ace</td>
-            <td>Ebike</td>
-            <td>6</td>
-            <td>Cubao / Gateway / CP1</td>
-            <td>Depends on the agreed date</td>
-            <td>Full</td>
-          </tr>
-          <tr>
-            <td>Hacky</td>
-            <td>Pick-up</td>
-            <td>4</td>
-            <td>Alabang Axis One</td>
-            <td>12noon</td>
-            <td>4 seats available</td>
-          </tr>
-          <tr>
-            <td>Daimos</td>
-            <td>SUV</td>
-            <td>5</td>
-            <td>LRT Santolan</td>
-            <td>Depends on the agreed date</td>
-            <td>4 seats available</td>
-          </tr>
-          <tr>
-            <td>Benz</td>
-            <td>Sedan</td>
-            <td>4</td>
-            <td>Cyberpark 1</td>
-            <td>6:00–6:30 pm</td>
-            <td>4 seats available</td>
-          </tr>
+          <tr><td>Ren</td><td>Hatchback</td><td>4</td><td>Cavite Area (Imus, Dasma)</td><td>Any date/time</td><td>Full</td></tr>
+          <tr><td>Aris</td><td>SUV</td><td>4</td><td>Cubao/Gateway/CP1</td><td>Nov 28 until 7pm</td><td>3 seats available</td></tr>
+          <tr><td>Ally</td><td>Sedan</td><td>3–4</td><td>Sto. Tomas Batangas route</td><td>Agreed date</td><td>3 seats available</td></tr>
+          <tr><td>Ace</td><td>Ebike</td><td>6</td><td>Cubao/Gateway/CP1</td><td>Agreed date</td><td>Full</td></tr>
+          <tr><td>Hacky</td><td>Pick-up</td><td>4</td><td>Alabang Axis One</td><td>12 noon</td><td>4 seats available</td></tr>
+          <tr><td>Daimos</td><td>SUV</td><td>5</td><td>LRT Santolan</td><td>Agreed date</td><td>4 seats available</td></tr>
+          <tr><td>Benz</td><td>Sedan</td><td>4</td><td>Cyberpark 1</td><td>6–6:30 PM</td><td>4 seats available</td></tr>
         </tbody>
       </table>
     </div>
+
   </div>
 </div>
 
 <script>
-  /* ===== Modal open/close (FIXED) ===== */
-  function openModal(id) {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-    modal.style.display = 'flex';   // make it flex container
-    // force reflow before adding show class for fade-in
-    void modal.offsetWidth;
-    modal.classList.add('show');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
+function openModal(id) {
+  document.getElementById(id).style.display = 'flex';
+}
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
 
-    // focus search when opening carpool modal
-    if (id === 'carpoolModal') {
-      setTimeout(() => {
-        const s = document.getElementById('carpoolSearch');
-        if (s) s.focus();
-      }, 120);
-    }
-  }
+// Snow animation
+for (let i = 0; i < 50; i++) {
+  let snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.style.left = Math.random() * window.innerWidth + 'px';
+  snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  snowflake.innerHTML = '❄';
+  document.body.appendChild(snowflake);
+}
 
-  function closeModal(id) {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
-    // wait for fade-out then hide
-    setTimeout(() => {
-      modal.style.display = 'none';
-    }, 180);
-  }
-
-  // Optional: close on overlay click (but not when clicking panel)
-  document.querySelectorAll('.modal').forEach(m => {
-    m.addEventListener('click', (e) => {
-      if (e.target === m) closeModal(m.id);
-    });
+// Accordion
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const body = header.nextElementSibling;
+    const openBody = document.querySelector('.accordion-body[style*="block"]');
+    if (openBody && openBody !== body) openBody.style.display = 'none';
+    body.style.display = (body.style.display === 'block') ? 'none' : 'block';
   });
-
-  /* ===== Snow animation ===== */
-  for (let i = 0; i < 50; i++) {
-    let snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-    snowflake.innerHTML = '❄';
-    document.body.appendChild(snowflake);
-  }
-
-  /* ===== Accordion functionality ===== */
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const body = header.nextElementSibling;
-      const openBody = document.querySelector('.accordion-body[style*="block"]');
-      if (openBody && openBody !== body) openBody.style.display = 'none';
-      body.style.display = (body.style.display === 'block') ? 'none' : 'block';
-    });
-  });
-
-  /* ===== Carpool table enhancements ===== */
-  function colorStatusCells() {
-    const rows = document.querySelectorAll('#carpoolTable tbody tr');
-    rows.forEach(row => {
-      const statusCell = row.cells[5];
-      if (!statusCell) return;
-      const text = statusCell.textContent.trim().toLowerCase();
-      statusCell.classList.remove('status-full', 'status-available');
-      if (text.includes('full')) {
-        statusCell.classList.add('status-full');
-      } else if (text.includes('seat')) {
-        statusCell.classList.add('status-available');
-      }
-    });
-  }
-  colorStatusCells();
-
-  // Filtering: buttons + live search
-  let currentFilter = 'all'; // all | available | full
-  const searchInput = document.getElementById('carpoolSearch');
-
-  function applyFilters() {
-    const q = (searchInput?.value || '').trim().toLowerCase();
-    const rows = document.querySelectorAll('#carpoolTable tbody tr');
-    rows.forEach(row => {
-      const cellsText = Array.from(row.cells).map(td => td.textContent.toLowerCase()).join(' | ');
-      const statusText = row.cells[5].textContent.toLowerCase();
-      const byType =
-        currentFilter === 'all' ||
-        (currentFilter === 'available' && !statusText.includes('full')) ||
-        (currentFilter === 'full' && statusText.includes('full'));
-      const bySearch = q === '' || cellsText.includes(q);
-      row.style.display = (byType && bySearch) ? '' : 'none';
-    });
-  }
-
-  document.querySelectorAll('.table-tools button[data-filter]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentFilter = btn.getAttribute('data-filter');
-      applyFilters();
-    });
-  });
-
-  searchInput?.addEventListener('input', applyFilters);
-
-  // Copy visible rows to clipboard
-  document.getElementById('copyCarpool')?.addEventListener('click', async (event) => {
-    const table = document.getElementById('carpoolTable');
-    const rows = Array.from(table.querySelectorAll('tbody tr')).filter(r => r.style.display !== 'none');
-    const header = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim()).join('\t');
-    const bodyLines = rows.map(r => Array.from(r.cells).map(td => td.textContent.trim()).join('\t')).join('\n');
-    const tsv = header + '\n' + bodyLines;
-
-    try {
-      await navigator.clipboard.writeText(tsv);
-      const original = event.target.textContent;
-      event.target.textContent = 'Copied!';
-      setTimeout(() => (event.target.textContent = original), 1200);
-    } catch (e) {
-      alert('Copy failed. Your browser may block clipboard access.');
-    }
-  });
+});
 </script>
 
 </body>
